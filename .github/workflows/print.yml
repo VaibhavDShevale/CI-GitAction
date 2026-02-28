@@ -3,11 +3,15 @@ on:
   push:
     branches:
       - main
+      - master
 
 jobs:
   say-hello:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Print a Message
+        run: echo "Hello! A push detected on Main Branch"
+
       - name: Print a Message
         run: echo "Hello! A push detected on Main Branch"
