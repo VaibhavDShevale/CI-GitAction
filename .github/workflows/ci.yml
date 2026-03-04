@@ -1,0 +1,26 @@
+name: Python CI
+on:
+  push:
+    branches:
+      - main
+      
+jobs:
+  python-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+
+      - name: Install Dependencies
+        run: |
+          pipenv install -r requirement.txt
+
+      - name: Run test
+        run: |
+          pipenv run pytest -v
